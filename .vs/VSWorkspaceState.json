@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\components",
+    "\\src\\app\\components\\interface"
   ],
-  "SelectedNode": "\\C:\\Users\\juanp\\OneDrive\\Escritorio\\ANGULAR",
+  "SelectedNode": "\\src",
   "PreviewInSolutionExplorer": false
 }
