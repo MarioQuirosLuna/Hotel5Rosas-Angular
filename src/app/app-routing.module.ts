@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageComponent } from './components/interface/page/page.component';
+import { AboutUsComponent } from './components/interface/about-us/about-us.component';
 
 const routes: Routes = [
-  { path: '**', component: PageComponent }
+  { path: 'about-us', component: AboutUsComponent },
+  { path: '**', redirectTo: "home" },
 ];
 
 @NgModule({

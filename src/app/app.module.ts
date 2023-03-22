@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/interface/header/header.component'
 import { LateralMenuComponent } from './components/interface/lateral-menu/lateral-menu.component';
 import { InformationComponent } from './components/interface/information/information.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AboutUsComponent } from './components/interface/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent,
     HeaderComponent,
     LateralMenuComponent,
-    InformationComponent
+    InformationComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
