@@ -72,8 +72,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
    ```
 
    ### ⚡ Executing.
-   
-   - ng serve --open
+   ```
+   npm start
+   ```
+   other alternative
+   ```
+   ng serve --open
+   ```
    
    ### More
    ## Development server
