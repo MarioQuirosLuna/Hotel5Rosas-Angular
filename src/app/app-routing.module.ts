@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PageComponent } from './components/interface/page/page.component';
+import { GenericPageComponent } from './components/interface/generic-page/generic-page.component';
 
 const routes: Routes = [
-  { path: '**', component: PageComponent }
+  { path: '**', component: GenericPageComponent }
 ];
 
 @NgModule({

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PageComponent } from './components/interface/page/page.component';
+import { GenericPageComponent } from './components/interface/generic-page/generic-page.component';
 import { AreaPublicityComponent } from './components/interface/area-publicity/area-publicity.component';
 import { FooterComponent } from './components/interface/footer/footer.component';
 import { HeaderComponent } from './components/interface/header/header.component';
@@ -14,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    PageComponent,
+    GenericPageComponent,
     AreaPublicityComponent,
     FooterComponent,
     HeaderComponent,
