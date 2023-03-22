@@ -9,6 +9,7 @@ import { FooterComponent } from './components/interface/footer/footer.component'
 import { HeaderComponent } from './components/interface/header/header.component';
 import { LateralMenuComponent } from './components/interface/lateral-menu/lateral-menu.component';
 import { InformationComponent } from './components/interface/information/information.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { InformationComponent } from './components/interface/information/informa
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
