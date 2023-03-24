@@ -2,7 +2,7 @@
   background-color : purple;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 80px 1fr 1fr 68px;
+  grid-template-rows: 80px 60 1fr 68px;
   gap: 10px;
   padding: 5px;
 }
@@ -38,7 +38,7 @@
 }
 
 .information {
-  background-color : cyan;
+  background-color : rgb(102, 151, 151);
 
   grid-column-start: 2;
   grid-column-end: 4;
