@@ -11,19 +11,19 @@ export class AreaPublicityComponent {
       id: "1",
       name: "img 1",
       description: "url",
-      img: "https://picsum.photos/500/500",
+      img: "../../../../assets/imgs/cocacola2.svg",
     },
     {
       id: "2",
       name: "img 2",
       description: "url",
-      img: "https://picsum.photos/500/500",
+      img: "../../../../assets/imgs/cocacola.svg",
     },
     {
       id: "3",
       name: "img 3",
       description: "url",
-      img: "https://picsum.photos/500/500",
+      img: "../../../../assets/imgs/comida.svg",
     }
   ];
 }

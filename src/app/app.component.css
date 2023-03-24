@@ -1,8 +1,8 @@
 .container {
-  background-color : purple;
+  /*background-color : purple;*/
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 80px 60 1fr 68px;
+  grid-template-rows: 80px 60 60 68px;
   gap: 10px;
   padding: 5px;
 }
@@ -18,7 +18,7 @@
 }
 
 .lateral-menu {
-  background-color : red;
+  /*background-color : red;*/
 
   grid-column-start: 1;
   grid-column-end: 1;
@@ -28,7 +28,9 @@
 }
 
 .area-publicity {
-  background-color : orange;
+  width: 400px;
+  height:400px;
+  /*background-color : orange;*/
 
   grid-column-start: 1;
   grid-column-end: 1;
@@ -38,7 +40,7 @@
 }
 
 .information {
-  background-color : rgb(102, 151, 151);
+  /*background-color : cyan;*/
 
   grid-column-start: 2;
   grid-column-end: 4;
