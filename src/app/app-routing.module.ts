@@ -7,12 +7,14 @@ import { FacilitiesPageComponent } from './components/Pages/facilities-page/faci
 import { UbicationPageComponent } from './components/Pages/ubication-page/ubication-page.component';
 import { ReservationDatePageComponent } from './components/Pages/reservation-date-page/reservation-date-page.component';
 import { ContactUsPageComponent } from './components/Pages/contact-us-page/contact-us-page.component';
+import { RatesPageComponent } from './components/Pages/rates-page/rates-page.component';
 
 const routes: Routes = [
-  { path: 'about-us', component: AboutUsComponent },
   { path: 'home', component: HomePageComponent },
+  { path: 'about-us', component: AboutUsComponent },
   { path: 'facilities', component: FacilitiesPageComponent },
   { path: 'ubication', component: UbicationPageComponent },
+  { path: 'rates', component: RatesPageComponent },
   { path: 'reservation-dates', component: ReservationDatePageComponent },
   { path: 'contact-us', component: ContactUsPageComponent },
   { path: '**', redirectTo: "home" },
