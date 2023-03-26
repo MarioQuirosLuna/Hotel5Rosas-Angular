@@ -10,10 +10,4 @@ export class LateralMenuComponent {
   constructor(private route: Router,) {
   }
 
-
-  about(){
-    alert("aa");
-    this.route.navigate(["/about-us"]);
-  }
-
 }
