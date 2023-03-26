@@ -1,4 +1,4 @@
-<div class="information d-flex p-3">
+<div class="d-flex pt-3 ps-3 pe-3">
   <section class="p-3 section-text" style="text-align: justify;">
     <h2>
       Sobre Nosotros
@@ -22,58 +22,20 @@
       interdum maecenas, consequat imperdiet penatibus enim, tristique luctus
       tellus eos accumsan, ridiculus erat laoreet nunc.
     </p>
+    <h2>Galeria</h2>
   </section>
 </div>
 
-<div class="information d-flex p-3">
-
+<div class="d-flex pb-3 ps-3 pe-3">
+  <div class="container p-3">
+    <img class="img-fluid rounded border border-dark" src={{ImagenDefault}} alt="Default image">
+  </div>
   <div class="container">
-
-
-    <div class="row text-center text-lg-start">
-
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-          <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/pWkk7iiCoDM/400x300" alt="">
-        </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-          <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/aob0ukAYfuI/400x300" alt="">
-        </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-          <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/EUfxH-pze7s/400x300" alt="">
-        </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-          <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/M185_qYH8vg/400x300" alt="">
-        </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-          <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/sesveuG_rNo/400x300" alt="">
-        </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-          <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/AvhMzHwiE_0/400x300" alt="">
-        </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-          <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/2gYsZUmockw/400x300" alt="">
-        </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-          <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/EMSDtjVHdQ8/400x300" alt="">
-        </a>
+    <div class="row">
+      <div class="col-md-4 mt-3 col-lg-3" *ngFor="let img of galeria;">
+        <img src={{img.Imagen}} class="img-fluid rounded border border-dark" alt="image"
+          (click)="showImage(img.Imagen)">
       </div>
     </div>
-
   </div>
-
 </div>
