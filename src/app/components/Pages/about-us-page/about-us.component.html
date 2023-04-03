@@ -25,7 +25,7 @@
     <img class="img-fluid rounded border border-dark" src={{ImagenDefault}} alt="Default image">
   </div>
   <div class="container">
-    <div class="row">
+    <div class="overflow-auto row" style="max-width: 1000px; max-height: 420px;">
       <div class="col-md-4 mt-3 col-lg-3" *ngFor="let img of galeria;">
         <img src={{img.Imagen}} class="img-fluid rounded border border-dark" alt="image"
           (click)="showImage(img.Imagen)">

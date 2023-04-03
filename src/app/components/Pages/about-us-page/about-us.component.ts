@@ -36,6 +36,30 @@ export class AboutUsComponent {
     },
     {
       Imagen: 'https://picsum.photos/410/400',
+    },
+    {
+      Imagen: 'https://picsum.photos/411/400',
+    },
+    {
+      Imagen: 'https://picsum.photos/412/400',
+    },
+    {
+      Imagen: 'https://picsum.photos/413/400',
+    },
+    {
+      Imagen: 'https://picsum.photos/414/400',
+    },
+    {
+      Imagen: 'https://picsum.photos/415/400',
+    },
+    {
+      Imagen: 'https://picsum.photos/416/400',
+    },
+    {
+      Imagen: 'https://picsum.photos/417/400',
+    },
+    {
+      Imagen: 'https://picsum.photos/418/400',
     }
   ];
   ImagenDefault = this.galeria[0].Imagen;

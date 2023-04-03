@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HotelServiceService } from 'src/app/services/hotel-name/hotel-service.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
-  hotelName = 'Hotel 5 Rosas';
+  hotelName: string = '';
 
+  constructor(private service: HotelServiceService) {
+    this.service.getHotelInfo().subscribe(hotel =>{
+      this.hotelName = hotel[0].nombre
+    })
+  }
 }
