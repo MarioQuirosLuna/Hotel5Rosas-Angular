@@ -1,5 +1,4 @@
 .container {
-  /*background-color : purple;*/
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 80px 60 60 68px;
@@ -9,7 +8,7 @@
 }
 
 .header {
-  /* background-color : orange; */
+  /*background-color: #576F72;*/
 
   grid-column-start: 1;
   grid-column-end: 4;
@@ -19,7 +18,7 @@
 }
 
 .lateral-menu {
-  /*background-color : red;*/
+  /*background-color: #576F72;*/
 
   grid-column-start: 1;
   grid-column-end: 1;
@@ -31,7 +30,7 @@
 .area-publicity {
   width: 400px;
   height: 400px;
-  /*background-color : orange;*/
+  /*background-color: #576F72;*/
 
   grid-column-start: 1;
   grid-column-end: 1;
@@ -41,7 +40,7 @@
 }
 
 .information {
-  /*background-color : cyan;*/
+  /*background-color: #576F72;*/
 
   grid-column-start: 2;
   grid-column-end: 4;
@@ -51,7 +50,7 @@
 }
 
 .footer {
-  /* background-color : grey; */
+  background-color : #576F72;
 
   grid-column-start: 1;
   grid-column-end: 4;

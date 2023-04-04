@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HotelServiceService } from 'src/app/services/hotel-name/hotel-service.service';
+import { HotelServiceService } from 'src/app/services/hotel-general-info/hotel-service.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +10,7 @@ export class HeaderComponent {
   hotelName: string = '';
 
   constructor(private service: HotelServiceService) {
-    this.service.getHotelInfo().subscribe(hotel =>{
+    this.service.getHotelName().subscribe(hotel =>{
       this.hotelName = hotel[0].nombre
     })
   }

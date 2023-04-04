@@ -6,3 +6,8 @@
 .section-text {
     width: 65%;
 }
+
+*{
+  color: #576F72;
+  background-color: #E4DCCF;
+}

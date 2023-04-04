@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AboutUsServiceService } from 'src/app/services/about-us-service/about-us-service.service';
 
 @Component({
   selector: 'app-about-us',
@@ -64,8 +65,16 @@ export class AboutUsComponent {
   ];
   ImagenDefault = this.galeria[0].Imagen;
 
-  constructor() { }
+  title: string = '';
+  information: string = '';
 
+  constructor(private service: AboutUsServiceService) {
+    this.service.getAboutUs().subscribe(aboutUs =>{
+      this.title = aboutUs.titulo
+      this.information = aboutUs.informacion
+      console.log(aboutUs)
+    })
+  }
   showImage(image: string) {
     this.ImagenDefault = image;
   }

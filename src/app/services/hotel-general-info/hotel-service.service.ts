@@ -1,6 +1,8 @@
+import { environment } from '../../../environments/enviroment-URL-API';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root',
@@ -8,10 +10,10 @@ import { Observable } from 'rxjs';
 export class HotelServiceService {
   constructor(private http: HttpClient) {}
 
-  apiURL = 'https://localhost:44343/api/Entity_Hotel/GetHotels';
+  apiURL = '/Entity_Hotel/GetHotels';
 
-  getHotelInfo(): Observable<any> {
-    return this.http.get(this.apiURL);
+  getHotelName(): Observable<any> {//Hotel Name
+    return this.http.get(environment.url+this.apiURL);
   }
 
 }
