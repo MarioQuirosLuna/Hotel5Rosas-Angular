@@ -5,14 +5,13 @@ import { Observable } from 'rxjs';
 
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class HotelServiceService {
+export class RoomsTypeServiceService {
   constructor(private http: HttpClient) {}
 
-  apiURL = '/Entity_Hotel/GetHotels';
-
-  getHotelName(): Observable<any> {//Hotel Name
+  apiURL = '/Entity_TipoHabitacion/GetRoomTypes';
+  getRoomsType(): Observable<any> {
     return this.http.get(environment.url+this.apiURL);
   }
 

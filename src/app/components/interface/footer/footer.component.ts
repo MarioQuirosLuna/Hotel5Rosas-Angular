@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HotelServiceService } from 'src/app/services/hotel-general-info/hotel-service.service';
+import { HotelServiceService } from 'src/app/services/hotel-general-info-service/hotel-service.service';
 
 @Component({
   selector: 'app-footer',

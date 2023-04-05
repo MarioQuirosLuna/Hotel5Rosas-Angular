@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HomeInfoService } from 'src/app/services/home-info/home-info.service';
+import { HomeInfoService } from 'src/app/services/home-info-service/home-info.service';
 
 @Component({
   selector: 'app-home-page',
@@ -9,9 +9,11 @@ import { HomeInfoService } from 'src/app/services/home-info/home-info.service';
 export class HomePageComponent {
   hotelName: string = '';
   information: string = '';
+  imageHotel: string = ''
 
   constructor(private service: HomeInfoService) {
     this.service.getHomeInfo().subscribe(hotelInfo =>{
+      this.imageHotel = hotelInfo.imagen
       this.hotelName = hotelInfo.titulo
       this.information = hotelInfo.informacion
       console.log(hotelInfo)

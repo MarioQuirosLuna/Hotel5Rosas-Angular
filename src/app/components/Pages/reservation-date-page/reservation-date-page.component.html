@@ -16,10 +16,9 @@
 
     <div class="input-group mb-3">
       <span class="input-group-text" id="inputGroup-sizing-lg">Tipo de Habitación</span>
+
       <select class="form-select form-select-sm">
-        <option value="1">Standar</option>
-        <option value="2">Standar</option>
-        <option value="3">Junior</option>
+        <option *ngFor="let roomType of roomTypes" value="{{roomType.pK_Tipo_Habitacion}}"> {{roomType.nombre }}</option>
       </select>
     </div>
 
