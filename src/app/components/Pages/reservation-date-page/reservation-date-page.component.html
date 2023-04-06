@@ -3,28 +3,31 @@
     <h2>
       Reserva en Línea
     </h2>
+    <form [formGroup]="reservationForm">
 
-    <label for="basic-url" class="form-label">Fecha de llegada</label>
-    <div class="input-group mb-3">
-      <input id="startDate" class="form-control" type="date" />
-    </div>
+      <label for="basic-url" class="form-label">Fecha de llegada</label>
+      <div class="input-group mb-3">
+        <input id="beginDate" class="form-control" type="date" formControlName="beginDate" />
+      </div>
 
-    <label for="basic-url" class="form-label">Fecha de Salida</label>
-    <div class="input-group mb-3">
-      <input id="endDate" class="form-control" type="date" />
-    </div>
+      <label for="basic-url" class="form-label">Fecha de Salida</label>
+      <div class="input-group mb-3">
+        <input id="endDate" class="form-control" type="date" formControlName="endDate">
+      </div>
 
-    <div class="input-group mb-3">
-      <span class="input-group-text" id="inputGroup-sizing-lg">Tipo de Habitación</span>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Tipo de Habitación</span>
 
-      <select class="form-select form-select-sm">
-        <option *ngFor="let roomType of roomTypes" value="{{roomType.pK_Tipo_Habitacion}}"> {{roomType.nombre }}</option>
-      </select>
-    </div>
+        <select class="form-select form-select-sm" formControlName="roomType">
+          <option *ngFor="let roomType of roomTypes" value="{{roomType.pK_Tipo_Habitacion}}">
+            {{roomType.nombre }}</option>
+        </select>
+      </div>
 
-    <div class="col-12">
-      <button class="btn btn-primary" type="submit">Aceptar</button>
-    </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-outline-primary" (click)="validationReservation()">Aceptar</button>
+      </div>
 
+    </form>
   </section>
 </div>

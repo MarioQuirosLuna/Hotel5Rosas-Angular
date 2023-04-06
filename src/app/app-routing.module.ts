@@ -8,6 +8,9 @@ import { UbicationPageComponent } from './components/Pages/ubication-page/ubicat
 import { ReservationDatePageComponent } from './components/Pages/reservation-date-page/reservation-date-page.component';
 import { ContactUsPageComponent } from './components/Pages/contact-us-page/contact-us-page.component';
 import { RatesPageComponent } from './components/Pages/rates-page/rates-page.component';
+import { ReservationDeclinePageComponent } from './components/Pages/reservation-decline-page/reservation-decline-page.component';
+import { ReservationAcceptPageComponent } from './components/Pages/reservation-accept-page/reservation-accept-page.component';
+import { ReservationPageComponent } from './components/Pages/reservation-page/reservation-page.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -15,7 +18,10 @@ const routes: Routes = [
   { path: 'facilities', component: FacilitiesPageComponent },
   { path: 'ubication', component: UbicationPageComponent },
   { path: 'rates', component: RatesPageComponent },
+  { path: 'reservation', component: ReservationPageComponent },
   { path: 'reservation-dates', component: ReservationDatePageComponent },
+  { path: 'reservation-decline', component: ReservationDeclinePageComponent },
+  { path: 'reservation-accept', component: ReservationAcceptPageComponent },
   { path: 'contact-us', component: ContactUsPageComponent },
   { path: '**', redirectTo: "home" },
 ];

@@ -1,0 +1,50 @@
+<div class="information d-flex p-3">
+  <section class="p-3 section-text" style="text-align: justify;">
+    <h2>
+      Reserva en Línea
+    </h2>
+    <h3>
+      Habitacion Disponible
+    </h3>
+    <div class="information d-flex">
+      <img class="img-fluid" src="https://picsum.photos/1000/1000" width="170" height="170"
+        alt="Imagen del Hotel 5 Rosas">
+      <div class="overflow-auto" style="max-width: 1000px; max-height: 180px;">
+        <section class="p-3 section-text">
+          <p style="text-align: justify;">
+            Lorem ipsum dolor sit amet, maiores ornare ac fermentum, imperdiet ut
+            vivamus a, nam lectus at nunc. Cum quam euismod sem, semper ut
+            potenti pellentesque quisque. In eget sapien sed, sit duis vestibulum
+            ultricies, placerat morbi amet vel, nullam in in lorem vel.
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <h4>Monto de su reservación: ${{cost}}</h4>
+
+    <form class="form-example">
+      <div class="form-example">
+        <label for="email" class="col-sm-2 col-form-label">Nombre: </label>
+        <input type="text" id="email" class="form-control" formControlName="username">
+      </div>
+      <div class="form-example">
+        <label for="email" class="col-sm-2 col-form-label">Apellidos: </label>
+        <input type="text" id="email" class="form-control" formControlName="username">
+      </div>
+      <div class="form-example">
+        <label for="email" class="col-sm-2 col-form-label">Email: </label>
+        <input type="text" id="email" class="form-control" formControlName="username">
+      </div>
+      <div class="form-example">
+        <label for="email" class="col-sm-2 col-form-label">Tarjeta de Credito: </label>
+        <input type="text" id="email" class="form-control" formControlName="username">
+      </div>
+      <div class="form-example">
+        <button type="submit" class="btn btn-outline-primary" (click)="validationReservation()">Aceptar</button>
+        <button type="reset" class="btn btn-outline-primary">Cancelar</button>
+      </div>
+    </form>
+
+  </section>
+</div>

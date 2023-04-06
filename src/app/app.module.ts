@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';//API CONNECTION
 
@@ -19,6 +20,9 @@ import { UbicationPageComponent } from './components/Pages/ubication-page/ubicat
 import { ReservationDatePageComponent } from './components/Pages/reservation-date-page/reservation-date-page.component';
 import { ContactUsPageComponent } from './components/Pages/contact-us-page/contact-us-page.component';
 import { RatesPageComponent } from './components/Pages/rates-page/rates-page.component';
+import { ReservationDeclinePageComponent } from './components/Pages/reservation-decline-page/reservation-decline-page.component';
+import { ReservationAcceptPageComponent } from './components/Pages/reservation-accept-page/reservation-accept-page.component';
+import { ReservationPageComponent } from './components/Pages/reservation-page/reservation-page.component';
 
 @NgModule({
   declarations: [
@@ -35,13 +39,17 @@ import { RatesPageComponent } from './components/Pages/rates-page/rates-page.com
     UbicationPageComponent,
     ReservationDatePageComponent,
     ContactUsPageComponent,
-    RatesPageComponent
+    RatesPageComponent,
+    ReservationDeclinePageComponent,
+    ReservationAcceptPageComponent,
+    ReservationPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
