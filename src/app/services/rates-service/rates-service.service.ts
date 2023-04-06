@@ -6,18 +6,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AboutUsServiceService {
+export class RatesServiceService {
   constructor(private http: HttpClient) {}
 
-  apiURL = '/Entity_Pagina/GetAboutUsPage';
-
-  getAboutUs(): Observable<any> {
+  apiURL = '/Entity_Pagina/getTarifas';
+  getRates(): Observable<any> {
     return this.http.get(environment.url+this.apiURL);
   }
-
-  apiGalleryURL = '/Entity_Galeria/getGalleryAboutUs';
-  getGalleryPhotos(): Observable<any> {
-    return this.http.get(environment.url+this.apiGalleryURL);
-  }
-
 }

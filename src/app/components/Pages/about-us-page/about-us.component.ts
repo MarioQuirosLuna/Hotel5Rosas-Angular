@@ -7,63 +7,8 @@ import { AboutUsServiceService } from 'src/app/services/about-us-service/about-u
   styleUrls: ['./about-us.component.css']
 })
 export class AboutUsComponent {
-  galeria = [
-    {
-      Imagen: 'https://picsum.photos/401/400',
-    },
-    {
-      Imagen: 'https://picsum.photos/402/400',
-    },
-    {
-      Imagen: 'https://picsum.photos/403/400',
-    },
-    {
-      Imagen: 'https://picsum.photos/404/400',
-    },
-    {
-      Imagen: 'https://picsum.photos/405/400',
-    },
-    {
-      Imagen: 'https://picsum.photos/406/400',
-    },
-    {
-      Imagen: 'https://picsum.photos/407/400',
-    },
-    {
-      Imagen: 'https://picsum.photos/408/400',
-    },
-    {
-      Imagen: 'https://picsum.photos/409/400',
-    },
-    {
-      Imagen: 'https://picsum.photos/410/400',
-    },
-    {
-      Imagen: 'https://picsum.photos/411/400',
-    },
-    {
-      Imagen: 'https://picsum.photos/412/400',
-    },
-    {
-      Imagen: 'https://picsum.photos/413/400',
-    },
-    {
-      Imagen: 'https://picsum.photos/414/400',
-    },
-    {
-      Imagen: 'https://picsum.photos/415/400',
-    },
-    {
-      Imagen: 'https://picsum.photos/416/400',
-    },
-    {
-      Imagen: 'https://picsum.photos/417/400',
-    },
-    {
-      Imagen: 'https://picsum.photos/418/400',
-    }
-  ];
-  ImagenDefault = this.galeria[0].Imagen;
+  gallery: any = []
+  ImagenDefault: any// = this.gallery[0].Imagen;
 
   title: string = '';
   information: string = '';
@@ -73,6 +18,11 @@ export class AboutUsComponent {
       this.title = aboutUs.titulo
       this.information = aboutUs.informacion
       console.log(aboutUs)
+    })
+    this.service.getGalleryPhotos().subscribe(gallery =>{
+      this.gallery = gallery;
+      this.ImagenDefault = this.gallery[0].imagen;
+      console.log(gallery)
     })
   }
   showImage(image: string) {
