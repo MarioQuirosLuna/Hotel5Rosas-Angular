@@ -34,15 +34,32 @@
       </div>
       <div class="form-example">
         <label for="email" class="col-sm-2 col-form-label">Email: </label>
-        <input type="text" id="email" class="form-control" formControlName="username">
+        <input type="email" id="email" class="form-control" formControlName="username">
       </div>
       <div class="form-example">
         <label for="email" class="col-sm-2 col-form-label">Tarjeta de Credito: </label>
-        <input type="text" id="email" class="form-control" formControlName="username">
+        <input type="number" id="email" class="form-control" formControlName="username">
       </div>
-      <div class="form-example">
-        <button type="submit" class="btn btn-outline-primary" (click)="validationReservation()">Aceptar</button>
-        <button type="reset" class="btn btn-outline-primary">Cancelar</button>
+      <div>
+        <table style="margin-left: 400px; background-color: aqua;">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <button type="submit" class="btn btn-outline-primary" (click)="validationReservation()" style="margin-right: 10px;">Aceptar</button>
+              </td>
+
+              <td>
+                <button type="reset" class="btn btn-outline-primary">Cancelar</button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
       </div>
     </form>
 

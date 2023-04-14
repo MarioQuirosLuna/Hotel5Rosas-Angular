@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PublicityServiceService } from 'src/app/services/publicity-service/publicity-service.service';
 
 @Component({
   selector: 'app-area-publicity',
@@ -6,6 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./area-publicity.component.css']
 })
 export class AreaPublicityComponent {
+
+  //publicities: any[] = []
+
+  constructor(private service: PublicityServiceService){
+    this.service.getPublicity().subscribe(publicities =>{
+      //this.publicities = publicities;
+      //console.log(this.publicities);
+    });
+  };
+
   publicities = [
     {
       id: "1",
