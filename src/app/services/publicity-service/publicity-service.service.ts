@@ -13,4 +13,5 @@ export class PublicityServiceService {
   getPublicity(): Observable<any> {
     return this.http.get(environment.url+this.apiURL);
   }
+
 }
