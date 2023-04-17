@@ -10,10 +10,9 @@ export class AreaPublicityComponent {
 
   publicities: any = []
 
-  constructor(private service: PublicityServiceService){
-    this.service.getPublicity().subscribe(publicities =>{
+  constructor(private service: PublicityServiceService) {
+    this.service.getPublicity().subscribe(publicities => {
       this.publicities = publicities;
-      console.log(publicities);
     });
   };
 
