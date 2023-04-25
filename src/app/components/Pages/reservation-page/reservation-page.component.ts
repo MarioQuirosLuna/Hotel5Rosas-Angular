@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ReservationService } from 'src/app/services/reservation-service/reservation.service';
 
 @Component({
@@ -10,22 +10,20 @@ import { ReservationService } from 'src/app/services/reservation-service/reserva
 })
 export class ReservationPageComponent {
 
-  reservationForm: FormGroup;
+  room: any;
+  numberDays: Number = 0;
+  cost: Number = 0;
 
-  constructor(private serviceReservation: ReservationService, private router: Router) {
-    this.reservationForm = new FormGroup({
-      name: new FormControl(''),
-      lastname: new FormControl(''),
-      email: new FormControl(''),
-      creditCard: new FormControl(''),
-      // room: new FormControl(''),
-      // beginDate: new FormControl(''),
-      // endDate: new FormControl(''),
-      // totalRate: new FormControl('')
-    });
+  constructor(private serviceReservation: ReservationService, private ActivatedRouter: ActivatedRoute, private router: Router) {
+
   }
 
-  cost = ''
+  ngOnInit(): void {
+    const data = this.ActivatedRouter.queryParams.subscribe(params => {
+      this.room = JSON.parse(params['data']);
+    });
+    this.calculateCost();
+  }
 
   validationReservation() {
 
@@ -35,6 +33,15 @@ export class ReservationPageComponent {
 
     this.router.navigate(['/reservation-accept'])
 
+  }
+
+  calculateCost() {
+    const beginDate = new Date(this.room.beginDate);
+    const endDate = new Date(this.room.endDate);
+    const diffTime = Math.abs(endDate.getTime() - beginDate.getTime());
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    this.numberDays = diffDays;
+    this.cost = (this.room.tarifa * diffDays);
   }
 
 }

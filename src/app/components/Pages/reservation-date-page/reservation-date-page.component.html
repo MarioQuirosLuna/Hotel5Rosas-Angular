@@ -7,12 +7,12 @@
 
       <label for="basic-url" class="form-label">Fecha de llegada</label>
       <div class="input-group mb-3">
-        <input id="beginDate" class="form-control" type="date" formControlName="beginDate" />
+        <input id="beginDate" class="form-control" type="datetime-local" formControlName="beginDate" />
       </div>
 
       <label for="basic-url" class="form-label">Fecha de Salida</label>
       <div class="input-group mb-3">
-        <input id="endDate" class="form-control" type="date" formControlName="endDate">
+        <input id="endDate" class="form-control" type="datetime-local" formControlName="endDate">
       </div>
 
       <div class="input-group mb-3">
@@ -27,7 +27,8 @@
       <div class="col-12">
         <button type="submit" class="btn btn-outline-primary" (click)="searchRoom()">Aceptar</button>
       </div>
-
     </form>
+
+    
   </section>
 </div>

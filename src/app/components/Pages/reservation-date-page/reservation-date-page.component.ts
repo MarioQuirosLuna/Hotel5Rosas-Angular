@@ -13,6 +13,13 @@ export class ReservationDatePageComponent {
   roomTypes: any = [];
   rooms: any = [];
 
+  fecha1: Date = new Date();
+  hora1: Date = new Date();
+
+  fecha2: Date = new Date();
+  hora2: Date = new Date();
+
+
   reservationForm: FormGroup;
 
   constructor(private serviceRoom: RoomsTypeServiceService, private serviceReservation: ReservationService, private router: Router) {
@@ -28,20 +35,17 @@ export class ReservationDatePageComponent {
   }
 
   searchRoom() {
-    // this.serviceReservation.getRoomForReservation(this.reservationForm.value)
-    //   .subscribe((response: any) => {
-    //     this.rooms = response;
-    //     if (this.rooms.length > 0) {
-    //       this.router.navigate(['/reservation'])
-    //     } else {
-    //       this.router.navigate(['/reservation-decline'])
-    //     }
-    //   })
-    console.log(this.reservationForm.value);
-    if (true) {
-      this.router.navigate(['/reservation'])
-    } else {
-      this.router.navigate(['/reservation-decline'])
-    }
+    this.serviceReservation.getRoomForReservation(this.reservationForm.value.beginDate, this.reservationForm.value.endDate, this.reservationForm.value.roomType)
+      .subscribe((response: any) => {
+        this.rooms = response;
+        const data = this.rooms;
+        data.beginDate = this.reservationForm.value.beginDate;
+        data.endDate = this.reservationForm.value.endDate;
+        if (this.rooms) {
+          this.router.navigate(['/reservation'], { queryParams: { data: JSON.stringify(data) } })
+        } else {
+          this.router.navigate(['/reservation-decline'])
+        }
+      })
   }
 }

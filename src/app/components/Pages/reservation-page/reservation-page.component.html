@@ -4,64 +4,52 @@
       Reserva en Línea
     </h2>
     <h3>
-      Habitacion Disponible
+      Habitacion Disponible #{{room.numero_Habitacion}}
+    </h3>
+    <h3>
+      Tipo: {{room.tipo_Habitacion}}
     </h3>
     <div class="information d-flex">
-      <img class="img-fluid" src="https://picsum.photos/1000/1000" width="170" height="170"
-        alt="Imagen del Hotel 5 Rosas">
+      <img class="img-fluid" src={{room.imagen}} width="170" height="170"
+        alt="Imagen de la habitacion del Hotel 5 Rosas">
       <div class="overflow-auto" style="max-width: 1000px; max-height: 180px;">
         <section class="p-3 section-text">
           <p style="text-align: justify;">
-            Lorem ipsum dolor sit amet, maiores ornare ac fermentum, imperdiet ut
-            vivamus a, nam lectus at nunc. Cum quam euismod sem, semper ut
-            potenti pellentesque quisque. In eget sapien sed, sit duis vestibulum
-            ultricies, placerat morbi amet vel, nullam in in lorem vel.
+            {{room.descripcion}}
           </p>
         </section>
       </div>
     </div>
 
-    <h4>Monto de su reservación: ${{cost}}</h4>
+    <h4>Tarifa diaria de reservación: ${{room.tarifa}}</h4>
+    <h4>Descuento de temporada {{room.nombre_Temporada}}: {{room.oferta}}%</h4>
 
-    <form class="form-example">
-      <div class="form-example">
-        <label for="email" class="col-sm-2 col-form-label">Nombre: </label>
-        <input type="text" id="email" class="form-control" formControlName="name">
+    <form>
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Juan" required>
       </div>
-      <div class="form-example">
-        <label for="email" class="col-sm-2 col-form-label">Apellidos: </label>
-        <input type="text" id="email" class="form-control" formControlName="lastname">
+      <div class="mb-3">
+        <label for="apellido" class="form-label">Apellido:</label>
+        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Perez" required>
       </div>
-      <div class="form-example">
-        <label for="email" class="col-sm-2 col-form-label">Email: </label>
-        <input type="email" id="email" class="form-control" formControlName="email">
+      <div class="mb-3">
+        <label for="tarjeta" class="form-label">Número de tarjeta:</label>
+        <input type="text" class="form-control" id="tarjeta" name="tarjeta" placeholder="1234 5678 9012 3456" required>
       </div>
-      <div class="form-example">
-        <label for="card" class="col-sm-2 col-form-label">Tarjeta de Credito: </label>
-        <input type="number" id="card" class="form-control" formControlName="creditCard">
+      <div class="mb-3">
+        <label for="correo" class="form-label">Correo electrónico:</label>
+        <input type="email" class="form-control" id="correo" name="correo" placeholder="nombre@dominio.com" required>
       </div>
-      <div>
-        <table style="margin-left: 400px; background-color: aqua;">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <button type="submit" class="btn btn-outline-primary" (click)="validationReservation()" style="margin-right: 10px;">Aceptar</button>
-              </td>
-
-              <td>
-                <button type="reset" class="btn btn-outline-primary">Cancelar</button>
-              </td>
-            </tr>
-
-          </tbody>
-        </table>
+      <div class="mb-3">
+        <label for="dias" class="form-label">Número de días:</label>
+        <input type="text" class="form-control" id="dias" name="dias" min="1" [(ngModel)]="numberDays" readonly>
       </div>
+      <div class="mb-3">
+        <label for="precio" class="form-label">Precio total:</label>
+        <input type="text" class="form-control" id="precio" name="precio" [(ngModel)]="cost" readonly>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
-
   </section>
 </div>
