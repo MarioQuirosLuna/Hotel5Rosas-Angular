@@ -27,19 +27,23 @@
     <form>
       <div class="mb-3">
         <label for="nombre" class="form-label">Nombre:</label>
-        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Juan" required>
+        <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="client_name" placeholder="Juan"
+          required>
       </div>
       <div class="mb-3">
         <label for="apellido" class="form-label">Apellido:</label>
-        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Perez" required>
+        <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="client_lastname"
+          placeholder="Perez" required>
       </div>
       <div class="mb-3">
         <label for="tarjeta" class="form-label">Número de tarjeta:</label>
-        <input type="text" class="form-control" id="tarjeta" name="tarjeta" placeholder="1234 5678 9012 3456" required>
+        <input type="text" class="form-control" id="tarjeta" name="tarjeta" [(ngModel)]="credit_number"
+          placeholder="1234 5678 9012 3456" required>
       </div>
       <div class="mb-3">
         <label for="correo" class="form-label">Correo electrónico:</label>
-        <input type="email" class="form-control" id="correo" name="correo" placeholder="nombre@dominio.com" required>
+        <input type="email" class="form-control" id="correo" name="correo" [(ngModel)]="email"
+          placeholder="nombre@dominio.com" required>
       </div>
       <div class="mb-3">
         <label for="dias" class="form-label">Número de días:</label>
@@ -49,7 +53,7 @@
         <label for="precio" class="form-label">Precio total:</label>
         <input type="text" class="form-control" id="precio" name="precio" [(ngModel)]="cost" readonly>
       </div>
-      <button type="submit" class="btn btn-primary">Enviar</button>
+      <button type="submit" class="btn btn-primary" (click)="validationReservation()">Enviar</button>
     </form>
   </section>
 </div>

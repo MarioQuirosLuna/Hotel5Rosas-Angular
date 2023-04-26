@@ -13,12 +13,6 @@ export class ReservationDatePageComponent {
   roomTypes: any = [];
   rooms: any = [];
 
-  fecha1: Date = new Date();
-  hora1: Date = new Date();
-
-  fecha2: Date = new Date();
-  hora2: Date = new Date();
-
 
   reservationForm: FormGroup;
 

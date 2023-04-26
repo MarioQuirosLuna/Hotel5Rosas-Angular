@@ -13,6 +13,10 @@ export class ReservationPageComponent {
   room: any;
   numberDays: Number = 0;
   cost: Number = 0;
+  client_name: string = '';
+  client_lastname: string = '';
+  credit_number: string = '';
+  email: string = '';
 
   constructor(private serviceReservation: ReservationService, private ActivatedRouter: ActivatedRoute, private router: Router) {
 
@@ -26,13 +30,28 @@ export class ReservationPageComponent {
   }
 
   validationReservation() {
+    const now = new Date();
+    const options = { timeZone: 'America/Costa_Rica' };
+    const date = now.toLocaleDateString('es-CR', options);
+    const time = now.toLocaleTimeString('es-CR', options);
+    console.log(date + ' ' + time);
 
-    // this.serviceReservation.postReservation(this.reservationForm.value).subscribe(() => {
-    //     this.router.navigate(['/reservation-accept'])
-    // })
 
-    this.router.navigate(['/reservation-accept'])
+    let reservation = {
+      "fK_Habitacion": this.room.pK_habitacion,
+      "nombre_Cliente": this.client_name,
+      "apellidos_Cliente": this.client_lastname,
+      "numero_Tarjeta": this.credit_number,
+      "correo": this.email,
+      "fecha_Transaccion": date + ' ' + time,
+      "fecha_Inicio": this.room.beginDate,
+      "fecha_Fin": this.room.endDate,
+      "tarifa_Total": this.cost
+    };
 
+    this.serviceReservation.postReservation(reservation).subscribe(() => {
+      this.router.navigate(['/reservation-accept'])
+    })
   }
 
   calculateCost() {
