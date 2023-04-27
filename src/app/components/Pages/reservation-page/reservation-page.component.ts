@@ -15,6 +15,7 @@ export class ReservationPageComponent {
   room: any;
   numberDays: Number = 0;
   cost: Number = 0;
+  costWithDiscount: Number = 0;
   client_name: string = '';
   client_lastname: string = '';
   credit_number: string = '';
@@ -41,7 +42,7 @@ export class ReservationPageComponent {
       "fecha_Transaccion": dateCR(),
       "fecha_Inicio": this.room.beginDate,
       "fecha_Fin": this.room.endDate,
-      "tarifa_Total": this.cost
+      "tarifa_Total": this.costWithDiscount
     };
     this.serviceReservation.postReservation(reservation).subscribe(() => {
       this.router.navigate(['/reservation-accept'])
@@ -54,7 +55,9 @@ export class ReservationPageComponent {
     const diffTime = Math.abs(endDate.getTime() - beginDate.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     this.numberDays = diffDays;
-    this.cost = (this.room.tarifa * diffDays);
+    let totalCost = (this.room.tarifa * diffDays);
+    this.cost = totalCost
+    this.costWithDiscount = (totalCost - (totalCost / this.room.oferta));
   }
 
 }
