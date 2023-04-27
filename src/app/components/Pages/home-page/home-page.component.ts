@@ -12,11 +12,10 @@ export class HomePageComponent {
   imageHotel: string = ''
 
   constructor(private service: HomeInfoService) {
-    this.service.getHomeInfo().subscribe(hotelInfo =>{
+    this.service.getHomeInfo().subscribe(hotelInfo => {
       this.imageHotel = hotelInfo.imagen
       this.hotelName = hotelInfo.titulo
       this.information = hotelInfo.informacion
-      console.log(hotelInfo)
     })
   }
 

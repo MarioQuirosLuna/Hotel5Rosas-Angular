@@ -12,9 +12,8 @@ export class FacilitiesPageComponent {
   facilities: any = [];
 
   constructor(private service: FacilitiesServiceService) {
-    this.service.getHotelFacilities().subscribe(facilities =>{
+    this.service.getHotelFacilities().subscribe(facilities => {
       this.facilities = facilities;
-      console.log(this.facilities)
     })
   }
 

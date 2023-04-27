@@ -17,12 +17,10 @@ export class AboutUsComponent {
     this.service.getAboutUs().subscribe(aboutUs =>{
       this.title = aboutUs.titulo
       this.information = aboutUs.informacion
-      console.log(aboutUs)
     })
     this.service.getGalleryPhotos().subscribe(gallery =>{
       this.gallery = gallery;
       this.ImagenDefault = this.gallery[0].imagen;
-      console.log(gallery)
     })
   }
   showImage(image: string) {

@@ -12,7 +12,6 @@ export class RatesPageComponent {
   constructor(private service: RatesServiceService) {
     this.service.getRates().subscribe((rates) => {
       this.rates = rates;
-      console.log(this.rates);
     });
   }
 }

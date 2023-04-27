@@ -30,16 +30,18 @@ export class ReservationDatePageComponent {
 
   searchRoom() {
     this.serviceReservation.getRoomForReservation(this.reservationForm.value.beginDate, this.reservationForm.value.endDate, this.reservationForm.value.roomType)
-      .subscribe((response: any) => {
-        this.rooms = response;
-        const data = this.rooms;
-        data.beginDate = this.reservationForm.value.beginDate;
-        data.endDate = this.reservationForm.value.endDate;
-        if (this.rooms) {
+      .subscribe(
+        (response: any) => {
+          this.rooms = response;
+          const data = this.rooms;
+          data.beginDate = this.reservationForm.value.beginDate;
+          data.endDate = this.reservationForm.value.endDate;
           this.router.navigate(['/reservation'], { queryParams: { data: JSON.stringify(data) } })
-        } else {
-          this.router.navigate(['/reservation-decline'])
+        }, (error) => {
+          if (error.status == 404) {
+            this.router.navigate(['/reservation-decline'])
+          }
         }
-      })
+      )
   }
 }
