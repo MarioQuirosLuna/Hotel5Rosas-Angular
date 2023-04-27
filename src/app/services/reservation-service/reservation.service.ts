@@ -11,8 +11,8 @@ export class ReservationService {
 
   apiURLGetRoom = '/Entity_Reserva/GetAvailableRoom';
   apiURLPostReservation = '/Entity_Reserva/SaveReservation';
-  getRoomForReservation(beginDate: any, endDate: any, typeRoom: any): Observable<any> {
-    return this.http.get(environment.url + this.apiURLGetRoom + '?beginDate=' + beginDate + '&endDate=' + endDate + '&typeRoom=' + typeRoom);
+  getRoomForReservation(beginDate: any, endDate: any, roomType: any): Observable<any> {
+    return this.http.get(environment.url + this.apiURLGetRoom + '?beginDate=' + beginDate + '&endDate=' + endDate + '&roomType=' + roomType);
   }
 
   postReservation(reservation: any): Observable<any> {

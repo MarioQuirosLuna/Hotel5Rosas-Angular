@@ -3,6 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ReservationService } from 'src/app/services/reservation-service/reservation.service';
 
+import { dateCR } from 'src/app/Utility/dateCR';
+
 @Component({
   selector: 'app-reservation-page',
   templateUrl: './reservation-page.component.html',
@@ -30,25 +32,17 @@ export class ReservationPageComponent {
   }
 
   validationReservation() {
-    const now = new Date();
-    const options = { timeZone: 'America/Costa_Rica' };
-    const date = now.toLocaleDateString('es-CR', options);
-    const time = now.toLocaleTimeString('es-CR', options);
-    console.log(date + ' ' + time);
-
-
     let reservation = {
       "fK_Habitacion": this.room.pK_habitacion,
       "nombre_Cliente": this.client_name,
       "apellidos_Cliente": this.client_lastname,
       "numero_Tarjeta": this.credit_number,
       "correo": this.email,
-      "fecha_Transaccion": date + ' ' + time,
+      "fecha_Transaccion": dateCR(),
       "fecha_Inicio": this.room.beginDate,
       "fecha_Fin": this.room.endDate,
       "tarifa_Total": this.cost
     };
-
     this.serviceReservation.postReservation(reservation).subscribe(() => {
       this.router.navigate(['/reservation-accept'])
     })
