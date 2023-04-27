@@ -60,4 +60,8 @@ export class ReservationPageComponent {
     this.costWithDiscount = (totalCost - (totalCost / this.room.oferta));
   }
 
+  cancel() {
+    this.router.navigate(['/reservation-dates'])
+  }
+
 }
