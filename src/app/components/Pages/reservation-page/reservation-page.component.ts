@@ -57,7 +57,11 @@ export class ReservationPageComponent {
     this.numberDays = diffDays;
     let totalCost = (this.room.tarifa * diffDays);
     this.cost = totalCost
-    this.costWithDiscount = (totalCost - (totalCost / this.room.oferta));
+    if (this.room.oferta != 0) {
+      this.costWithDiscount = (totalCost - (totalCost * (this.room.oferta / 100)));
+    } else {
+      this.costWithDiscount = totalCost;
+    }
   }
 
   cancel() {
