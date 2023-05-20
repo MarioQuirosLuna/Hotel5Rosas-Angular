@@ -9,10 +9,10 @@ import { Observable } from 'rxjs';
 export class ReservationService {
   constructor(private http: HttpClient) { }
 
-  apiURLGetRoom = '/Entity_Reserva/GetAvailableRoom';
+  apiURLGetRoom = '/Entity_Reserva/GetAvaibilityRoom';
   apiURLPostReservation = '/Entity_Reserva/SaveReservation';
-  getRoomForReservation(beginDate: any, endDate: any, roomType: any): Observable<any> {
-    return this.http.get(environment.url + this.apiURLGetRoom + '?beginDate=' + beginDate + '&endDate=' + endDate + '&roomType=' + roomType);
+  getRoomForReservation(startDate: String, endDate: String, roomType: Number): Observable<any> {
+    return this.http.get(environment.url + this.apiURLGetRoom + '/' + startDate + '/' + endDate + '/' + roomType);
   }
 
   postReservation(reservation: any): Observable<any> {
