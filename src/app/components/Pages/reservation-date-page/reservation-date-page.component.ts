@@ -36,7 +36,11 @@ export class ReservationDatePageComponent {
           const data = this.rooms;
           data.beginDate = this.reservationForm.value.beginDate;
           data.endDate = this.reservationForm.value.endDate;
-          this.router.navigate(['/reservation'], { queryParams: { data: JSON.stringify(data) } })
+
+          const navigationExtras = {
+            queryParams: { data: JSON.stringify(data) },
+          };
+          this.router.navigate(['/reservation'], navigationExtras).then(() => { window.history.replaceState({}, document.title, this.router.url.split('?')[0]); });
         }, (error) => {
           if (error.status == 404) {
             this.router.navigate(['/reservation-decline'])
