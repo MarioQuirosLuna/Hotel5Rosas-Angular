@@ -12,7 +12,12 @@ export class HotelServiceService {
 
   apiURL = '/Entity_Hotel/GetHotels';
   getHotelName(): Observable<any> {//Hotel Name
-    return this.http.get(environment.url+this.apiURL);
+    return this.http.get(environment.url + this.apiURL);
+  }
+
+  apiContactUsURL = '/Entity_Pagina/GetInformationContactUs';
+  getContactUs(): Observable<any> {
+    return this.http.get(environment.url + this.apiContactUsURL);
   }
 
   apiURLPhones = '/Entity_Telefono/GetPhones';

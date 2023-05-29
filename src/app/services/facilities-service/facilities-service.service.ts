@@ -14,4 +14,9 @@ export class FacilitiesServiceService {
   getHotelFacilities(): Observable<any> {
     return this.http.get(environment.url+this.apiURL);
   }
+
+  apiFacilityURL = '/Entity_Pagina/GetEasePage';
+  getFacility(): Observable<any> {
+    return this.http.get(environment.url + this.apiFacilityURL);
+  }
 }

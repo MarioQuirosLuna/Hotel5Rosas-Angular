@@ -7,6 +7,7 @@ import { HotelServiceService } from 'src/app/services/hotel-general-info-service
   styleUrls: ['./contact-us-page.component.css'],
 })
 export class ContactUsPageComponent {
+  information : String = ""
   hotelName: string = '';
   hotelPhones: string = '';
   hotelEmails: string = '';
@@ -14,6 +15,9 @@ export class ContactUsPageComponent {
   constructor(private service: HotelServiceService) {
     this.service.getHotelName().subscribe((hotel) => {
       this.hotelName = hotel[0].nombre;
+    });
+    this.service.getContactUs().subscribe((information) => {
+      this.information = information.informacion;
     });
     this.service.getHotelPhones().subscribe((hotelPhones) => {
       for (let i = 0; i < hotelPhones.length; i++) {

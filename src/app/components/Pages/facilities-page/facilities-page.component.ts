@@ -11,9 +11,15 @@ export class FacilitiesPageComponent {
 
   facilities: any = [];
 
+  information : String = ""
+
   constructor(private service: FacilitiesServiceService) {
     this.service.getHotelFacilities().subscribe(facilities => {
       this.facilities = facilities;
+    })
+    this.service.getFacility().subscribe(information => {
+      console.log(information)
+      this.information = information.informacion;
     })
   }
 
