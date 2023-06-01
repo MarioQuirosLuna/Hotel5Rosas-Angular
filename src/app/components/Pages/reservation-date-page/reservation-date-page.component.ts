@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RoomsTypeServiceService } from 'src/app/services/rooms-type-service/rooms-type-service.service';
 import { ReservationService } from 'src/app/services/reservation-service/reservation.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-reservation-date-page',
@@ -18,8 +19,8 @@ export class ReservationDatePageComponent {
 
   constructor(private serviceRoom: RoomsTypeServiceService, private serviceReservation: ReservationService, private router: Router) {
     this.reservationForm = new FormGroup({
-      beginDate: new FormControl(''),
-      endDate: new FormControl(''),
+      beginDate: new FormControl('', Validators.required),
+      endDate: new FormControl('', Validators.required),
       roomType: new FormControl('')
     });
 
@@ -28,24 +29,69 @@ export class ReservationDatePageComponent {
     })
   }
 
-  searchRoom() {
-    this.serviceReservation.getRoomForReservation(this.reservationForm.value.beginDate, this.reservationForm.value.endDate, this.reservationForm.value.roomType)
-      .subscribe(
-        (response: any) => {
-          this.rooms = response;
-          const data = this.rooms;
-          data.beginDate = this.reservationForm.value.beginDate;
-          data.endDate = this.reservationForm.value.endDate;
+  DatesValidation() {
 
-          const navigationExtras = {
-            queryParams: { data: JSON.stringify(data) },
-          };
-          this.router.navigate(['/reservation'], navigationExtras).then(() => { window.history.replaceState({}, document.title, this.router.url.split('?')[0]); });
-        }, (error) => {
-          if (error.status == 404) {
-            this.router.navigate(['/reservation-decline'])
+    let originalDate = new Date();
+
+    let year = originalDate.getFullYear();
+    let month = ('0' + (originalDate.getMonth() + 1)).slice(-2);
+    let day = ('0' + originalDate.getDate()).slice(-2);
+    let hours = ('0' + originalDate.getHours()).slice(-2);
+    let minutes = ('0' + originalDate.getMinutes()).slice(-2);
+
+    let formatedDate = year + '-' + month + '-' + day + 'T' + hours + ':' + minutes;
+
+    if (!this.reservationForm.value.beginDate || !this.reservationForm.value.endDate) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Error',
+        text: 'Por favor, seleccione ambas fechas'
+      });
+      return false;
+    }
+
+    if (this.reservationForm.value.beginDate < formatedDate || this.reservationForm.value.endDate < formatedDate) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Error',
+        text: 'Las fechas deben ser mayores al día de hoy'
+      });
+      return false;
+    }
+
+    if (this.reservationForm.value.beginDate >= this.reservationForm.value.endDate) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Error',
+        text: 'La fecha de llegada debe ser menor a la fecha de salida'
+      });
+
+      return false;
+    }
+
+    return true;
+  }
+
+  searchRoom() {
+    if (this.DatesValidation()) {
+      this.serviceReservation.getRoomForReservation(this.reservationForm.value.beginDate, this.reservationForm.value.endDate, this.reservationForm.value.roomType)
+        .subscribe(
+          (response: any) => {
+            this.rooms = response;
+            const data = this.rooms;
+            data.beginDate = this.reservationForm.value.beginDate;
+            data.endDate = this.reservationForm.value.endDate;
+
+            const navigationExtras = {
+              queryParams: { data: JSON.stringify(data) },
+            };
+            this.router.navigate(['/reservation'], navigationExtras).then(() => { window.history.replaceState({}, document.title, this.router.url.split('?')[0]); });
+          }, (error) => {
+            if (error.status == 404) {
+              this.router.navigate(['/reservation-decline'])
+            }
           }
-        }
-      )
+        )
+    }
   }
 }
