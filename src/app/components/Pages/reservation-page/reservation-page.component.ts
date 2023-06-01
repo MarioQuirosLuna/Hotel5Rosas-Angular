@@ -26,9 +26,10 @@ export class ReservationPageComponent {
   }
 
   ngOnInit(): void {
-    const data = this.ActivatedRouter.queryParams.subscribe(params => {
+    this.ActivatedRouter.queryParams.subscribe(params => {
       this.room = JSON.parse(params['data']);
     });
+    console.log(this.room)
     this.calculateCost();
   }
 
