@@ -36,16 +36,14 @@ export class ReservationDatePageComponent {
     let year = originalDate.getFullYear();
     let month = ('0' + (originalDate.getMonth() + 1)).slice(-2);
     let day = ('0' + originalDate.getDate()).slice(-2);
-    let hours = ('0' + originalDate.getHours()).slice(-2);
-    let minutes = ('0' + originalDate.getMinutes()).slice(-2);
 
-    let formatedDate = year + '-' + month + '-' + day + 'T' + hours + ':' + minutes;
+    let formatedDate = year + '-' + month + '-' + day;
 
-    if (!this.reservationForm.value.beginDate || !this.reservationForm.value.endDate) {
+    if (!this.reservationForm.value.beginDate || !this.reservationForm.value.endDate || !this.reservationForm.value.roomType) {
       Swal.fire({
         icon: 'warning',
         title: 'Error',
-        text: 'Por favor, seleccione ambas fechas'
+        text: 'Por favor, no deje espacios vacíos'
       });
       return false;
     }
@@ -54,7 +52,7 @@ export class ReservationDatePageComponent {
       Swal.fire({
         icon: 'warning',
         title: 'Error',
-        text: 'Las fechas deben ser mayores al día de hoy'
+        text: 'Las fechas no pueden ser menores al día de hoy'
       });
       return false;
     }

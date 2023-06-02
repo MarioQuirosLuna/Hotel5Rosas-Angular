@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ReservationService } from 'src/app/services/reservation-service/reservation.service';
 
 import { dateCR } from 'src/app/Utility/dateCR';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-reservation-page',
@@ -33,21 +34,41 @@ export class ReservationPageComponent {
     this.calculateCost();
   }
 
+  Validation() {
+    if (!this.client_name || !this.client_lastname || !this.email || !this.credit_number) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Error',
+        text: 'Por favor, no deje espacios vacíos'
+      });
+      return false;
+    }
+
+    return true;
+  }
+
   validationReservation() {
-    let reservation = {
-      "fK_Habitacion": this.room.pK_habitacion,
-      "nombre_Cliente": this.client_name,
-      "apellidos_Cliente": this.client_lastname,
-      "numero_Tarjeta": this.credit_number,
-      "correo": this.email,
-      "fecha_Transaccion": dateCR(),
-      "fecha_Inicio": this.room.beginDate,
-      "fecha_Fin": this.room.endDate,
-      "tarifa_Total": this.costWithDiscount
-    };
-    this.serviceReservation.postReservation(reservation).subscribe(() => {
-      this.router.navigate(['/reservation-accept'])
-    })
+    if (this.Validation()) {
+      let reservation = {
+        "fK_Habitacion": this.room.pK_habitacion,
+        "nombre_Cliente": this.client_name,
+        "apellidos_Cliente": this.client_lastname,
+        "numero_Tarjeta": this.credit_number,
+        "correo": this.email,
+        "fecha_Transaccion": dateCR(),
+        "fecha_Inicio": this.room.beginDate,
+        "fecha_Fin": this.room.endDate,
+        "tarifa_Total": this.costWithDiscount
+      };
+      this.serviceReservation.postReservation(reservation).subscribe(() => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Reserva exitosa',
+          text: 'Su reserva ya ha sido registrada en nuestro sistema'
+        });
+        this.router.navigate(['/reservation-accept'])
+      })
+    }
   }
 
   calculateCost() {
