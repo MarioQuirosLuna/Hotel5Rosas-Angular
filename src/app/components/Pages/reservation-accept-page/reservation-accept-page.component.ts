@@ -15,22 +15,13 @@ interface jsPDFWithPlugin extends jspdf.jsPDF {
   styleUrls: ['./reservation-accept-page.component.css']
 })
 export class ReservationAcceptPageComponent {
-  room: any = {
-    nombre_Cliente: 'John',
-    apellidos_Cliente: 'Doe',
-    fK_Habitacion: '123',
-    fecha_Transaccion: '2023-06-05',
-    fecha_Inicio: '2023-06-10',
-    fecha_Fin: '2023-06-15',
-    tarifa_Total: '500'
-  };
+  room: any;
 
   constructor(private ActivatedRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.ActivatedRouter.queryParams.subscribe(params => {
       this.room = JSON.parse(params['data']);
-      console.log(this.room);
     });
   }
 

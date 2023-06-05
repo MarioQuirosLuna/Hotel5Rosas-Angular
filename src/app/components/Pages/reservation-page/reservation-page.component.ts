@@ -60,7 +60,6 @@ export class ReservationPageComponent {
         "tarifa_Total": this.costWithDiscount
       };
       this.serviceReservation.postReservation(reservation).subscribe((reponse) => {
-        console.log(reponse)
         Swal.fire({
           icon: 'success',
           title: 'Reserva exitosa',
