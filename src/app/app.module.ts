@@ -23,6 +23,7 @@ import { RatesPageComponent } from './components/Pages/rates-page/rates-page.com
 import { ReservationDeclinePageComponent } from './components/Pages/reservation-decline-page/reservation-decline-page.component';
 import { ReservationAcceptPageComponent } from './components/Pages/reservation-accept-page/reservation-accept-page.component';
 import { ReservationPageComponent } from './components/Pages/reservation-page/reservation-page.component';
+import { MapComponent } from './components/Util/map/map.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ReservationPageComponent } from './components/Pages/reservation-page/re
     RatesPageComponent,
     ReservationDeclinePageComponent,
     ReservationAcceptPageComponent,
-    ReservationPageComponent
+    ReservationPageComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

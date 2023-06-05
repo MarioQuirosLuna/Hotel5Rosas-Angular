@@ -8,10 +8,18 @@ import { UbicationServiceService } from 'src/app/services/ubication-service/ubic
 })
 export class UbicationPageComponent {
   ubication: string = '';
+  latitude: number = 0;
+  longitude: number = 0;
 
   constructor(private service: UbicationServiceService) {
-    this.service.getUbication().subscribe(ubication =>{
+
+  }
+
+  ngOnInit() {
+    this.service.getUbication().subscribe(ubication => {
       this.ubication = ubication[0].informacion
+      this.latitude = ubication[0].latitud
+      this.longitude = ubication[0].longitud
       console.log(ubication)
     })
   }
