@@ -30,7 +30,6 @@ export class ReservationPageComponent {
     this.ActivatedRouter.queryParams.subscribe(params => {
       this.room = JSON.parse(params['data']);
     });
-    console.log(this.room)
     this.calculateCost();
   }
 
@@ -60,13 +59,17 @@ export class ReservationPageComponent {
         "fecha_Fin": this.room.endDate,
         "tarifa_Total": this.costWithDiscount
       };
-      this.serviceReservation.postReservation(reservation).subscribe(() => {
+      this.serviceReservation.postReservation(reservation).subscribe((reponse) => {
+        console.log(reponse)
         Swal.fire({
           icon: 'success',
           title: 'Reserva exitosa',
           text: 'Su reserva ya ha sido registrada en nuestro sistema'
         });
-        this.router.navigate(['/reservation-accept'])
+        const navigationExtras = {
+          queryParams: { data: JSON.stringify(reservation) },
+        };
+        this.router.navigate(['/reservation-accept'], navigationExtras).then(() => { window.history.replaceState({}, document.title, this.router.url.split('?')[0]) });
       })
     }
   }
