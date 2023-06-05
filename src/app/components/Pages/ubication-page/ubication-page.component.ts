@@ -20,7 +20,6 @@ export class UbicationPageComponent {
       this.ubication = ubication[0].informacion
       this.latitude = ubication[0].latitud
       this.longitude = ubication[0].longitud
-      console.log(ubication)
     })
   }
 }
