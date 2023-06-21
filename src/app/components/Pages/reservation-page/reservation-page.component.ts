@@ -43,7 +43,21 @@ export class ReservationPageComponent {
       return false;
     }
 
+    if (!this.validarEmail(this.email)) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Error',
+        text: 'Por favor, ingrese un correo electrónico válido'
+      });
+      return false;
+    }
+
     return true;
+  }
+
+  validarEmail(email: string): boolean {
+    const patron = /^[\w\.-]+@[\w\.-]+\.\w+$/;
+    return patron.test(email);
   }
 
   validationReservation() {
