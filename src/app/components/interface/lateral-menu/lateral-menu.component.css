@@ -12,23 +12,36 @@
 
   background-color: #E4DCCF;
 }
+
 .sidebar .nav-link:hover {
   background-color: rgb(199, 194, 194);
-  color:  #576F72;
+  color: #576F72;
 }
-ul{
+
+ul {
   flex-direction: column;
 }
 
 @media (max-width: 1200px) {
-  .sidebar .nav, ul {
-    display: flex;
+
+  .sidebar .nav,
+  ul {
     flex-direction: row;
   }
+
   .sidebar .nav-link {
-    width: fit-content;
+    width: auto;
   }
-  ul{
+
+  ul {
+    display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  li {
+    flex-grow: 1;
+    flex-basis: 150px;
+    text-align: center;
   }
 }
