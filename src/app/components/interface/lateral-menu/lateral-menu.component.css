@@ -16,3 +16,19 @@
   background-color: rgb(199, 194, 194);
   color:  #576F72;
 }
+ul{
+  flex-direction: column;
+}
+
+@media (max-width: 1200px) {
+  .sidebar .nav, ul {
+    display: flex;
+    flex-direction: row;
+  }
+  .sidebar .nav-link {
+    width: fit-content;
+  }
+  ul{
+    justify-content: center;
+  }
+}
